@@ -1,26 +1,3 @@
-<script>
-    // @flamsens: set search set to item sets
-    $('#search-item-sets').trigger('click');
-
-    $(document).on('click','.tablesaw th[data-sort_by]', function() {
-        item = $(this);
-        let sortOrder = $("select[name='sort_order']");
-        let sortBy = $("select[name='sort_by']");
-
-        sortBy.val(item.data('sort_by')).change();
-        if ( item.hasClass('sort-active') ) {
-            sortOrder.val( sortOrder.val() == 'desc' ? 'asc' : 'desc' ).change();
-        }
-        $("form.sorting").submit();
-    });
-</script>
-
-<style>
-    .tablesaw th {
-        cursor: pointer;
-    }
-</style>
-
 <?php
 // @flamsens: calculate sort parameters
 $params = $this->params();
@@ -280,4 +257,6 @@ $('#sidebar-delete-all').on('click', 'input[name="confirm-delete-all-check"]', f
 
 <?php endif; ?>
 
-
+<script>
+    $('#search-item-sets').trigger('click');
+</script>

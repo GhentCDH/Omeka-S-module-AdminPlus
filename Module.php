@@ -76,7 +76,7 @@ class Module extends AbstractModule
         $view = $e->getTarget();
         if ($view instanceof RendererInterface) {
             $view->headLink()->appendStylesheet($view->assetUrl('css/adminplus.css', 'AdminPlus'));
-//            $view->headScript()->appendFile($view->assetUrl('js/adminplus.js', 'AdminPlus'));
+            $view->headScript()->appendFile($view->assetUrl('js/adminplus.js', 'AdminPlus'));
         }
     }
 

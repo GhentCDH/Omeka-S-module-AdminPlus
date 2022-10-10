@@ -1,6 +1,10 @@
 (function ($) {
-    $(document).on('click','.tablesaw th[data-sort_by]', function() {
-        item = $(this);
+    $(document).on('click','.tablesaw th[data-sort_by]', function(e) {
+        let realTarget = document.elementFromPoint(e.clientX, e.clientY);
+        if ( realTarget.tagName !== 'TH' ) {
+            return;
+        }
+        let item = $(this);
         let sortOrder = $("select[name='sort_order']");
         let sortBy = $("select[name='sort_by']");
 

@@ -1,3 +1,121 @@
 .tablesaw th {
     cursor: pointer;
 }
+
+body.items.browse,
+body.item-sets.browse,
+body.jobs {
+    overflow: hidden;
+}
+body.items.browse .flex > #content,
+body.item-sets.browse .flex > #content,
+body.jobs .flex > #content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+body.items.browse .flex > #content > #batch-form,
+body.item-sets.browse .flex > #content > #batch-form,
+body.jobs .flex > #content > #batch-form {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+    overflow: hidden;
+}
+body.items.browse .flex > #content > #batch-form table,
+body.item-sets.browse .flex > #content > #batch-form table,
+body.jobs .flex > #content > #batch-form table {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+    overflow: hidden;
+}
+body.items.browse .flex > #content > #batch-form table tbody,
+body.item-sets.browse .flex > #content > #batch-form table tbody,
+body.jobs .flex > #content > #batch-form table tbody {
+    flex: 1 1;
+    overflow-y: auto;
+}
+body.items.browse .flex > #content > #batch-form table tr,
+body.item-sets.browse .flex > #content > #batch-form table tr,
+body.jobs .flex > #content > #batch-form table tr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+body.items.browse .flex > #content > #batch-form table td,
+body.items.browse .flex > #content > #batch-form table th,
+body.item-sets.browse .flex > #content > #batch-form table td,
+body.item-sets.browse .flex > #content > #batch-form table th,
+body.jobs .flex > #content > #batch-form table td,
+body.jobs .flex > #content > #batch-form table th {
+    flex: 1 1;
+}
+body.items.browse .flex > #content > #batch-form table td:first-child,
+body.items.browse .flex > #content > #batch-form table th:first-child,
+body.item-sets.browse .flex > #content > #batch-form table td:first-child,
+body.item-sets.browse .flex > #content > #batch-form table th:first-child,
+body.jobs .flex > #content > #batch-form table td:first-child,
+body.jobs .flex > #content > #batch-form table th:first-child {
+    flex: 8 1;
+}
+body.items.browse .flex > header,
+body.item-sets.browse .flex > header,
+body.jobs .flex > header {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+
+/*
+body.items.browse, body.item-sets.browse, body.jobs {
+
+    overflow: hidden;
+
+    .flex > #content {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+
+        & > #batch-form {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1;
+            overflow: hidden;
+
+            table {
+                display: flex;
+                flex-direction: column;
+                flex: 1 1;
+                overflow: hidden;
+
+                tbody {
+                    flex: 1 1;
+                    overflow-y: auto;
+                }
+
+                tr {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                }
+              td, th {
+                  flex: 1 1;
+
+                  &:first-child {
+                      flex: 8 1;
+                  }
+              }
+            }
+        }
+    }
+
+    .flex > header {
+        height: 100vh;
+        overflow-y: auto;
+
+    }
+
+}
+
+ */

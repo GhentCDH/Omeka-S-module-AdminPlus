@@ -1,4 +1,8 @@
 <?php
+/**
+ * @var \Omeka\Api\Representation\ItemRepresentation[] $items
+ */
+
 // @flamsens: calculate sort parameters
 $params = $this->params();
 $sortConfig = [
@@ -29,6 +33,14 @@ $sortHeadings = [
     [
         'label' => $translate('Created'),
         'value' => 'created'
+    ],
+    [
+        'label' => $translate('Modified'),
+        'value' => 'modified'
+    ],
+    [
+        'label' => $translate('Number of item sets'),
+        'value' => 'itemsets'
     ],
 ];
 ?>
@@ -101,6 +113,18 @@ $sortHeadings = [
                     <span><i class="fa fa-solid fa-angle-<?= $sortConfig['sortOrder'] == 'desc' ? 'down' : 'up'; ?>"></i></span>
                 <?php endif ?>
             </th>
+            <th data-sort_by="modified" class="<?= $sortConfig['sortBy'] == 'modified' ? 'sort-active' : '' ?>">
+                <?php echo $translate('Modified'); ?>
+                <?php if ($sortConfig['sortBy'] == 'modified'): ?>
+                    <span><i class="fa fa-solid fa-angle-<?= $sortConfig['sortOrder'] == 'desc' ? 'down' : 'up'; ?>"></i></span>
+                <?php endif ?>
+            </th>
+            <th data-sort_by="itemsets" class="<?= $sortConfig['sortBy'] == 'itemsets' ? 'sort-active' : '' ?>">
+                <?php echo $translate('Item Sets'); ?>
+                <?php if ($sortConfig['sortBy'] == 'itemsets'): ?>
+                    <span><i class="fa fa-solid fa-angle-<?= $sortConfig['sortOrder'] == 'desc' ? 'down' : 'up'; ?>"></i></span>
+                <?php endif ?>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -154,6 +178,9 @@ $sortHeadings = [
             <td><?php echo $escape($translate($item->displayResourceClassLabel())); ?></td>
             <td><?php echo $ownerText; ?></td>
             <td><?php echo $escape($this->i18n()->dateFormat($item->created())); ?></td>
+            <td><?php echo $escape($this->i18n()->dateFormat($item->modified())); ?></td>
+            <?php //@flamsens: add more fields using event? ?>
+            <td><?= count($item->itemSets());  ?></td>
         </tr>
         <?php endforeach; ?>
     </tbody>

@@ -1,4 +1,8 @@
 <?php
+/**
+ * @var \Omeka\Api\Representation\ItemSetRepresentation[] $itemSets
+ */
+
 // @flamsens: calculate sort parameters
 $params = $this->params();
 $sortConfig = [
@@ -29,6 +33,10 @@ $sortHeadings = [
     [
         'label' => $translate('Created'),
         'value' => 'created'
+    ],
+    [
+        'label' => $translate('Modified'),
+        'value' => 'modified'
     ],
     // @flamsens: added item count
     [
@@ -105,6 +113,12 @@ $sortHeadings = [
                     <span><i class="fa fa-solid fa-angle-<?= $sortConfig['sortOrder'] == 'desc' ? 'down' : 'up'; ?>"></i></span>
                 <?php endif ?>
             </th>
+            <th data-sort_by="modified" class="<?= $sortConfig['sortBy'] == 'modified' ? 'sort-active' : '' ?>">
+                <?php echo $translate('Modified'); ?>
+                <?php if ($sortConfig['sortBy'] == 'modified'): ?>
+                    <span><i class="fa fa-solid fa-angle-<?= $sortConfig['sortOrder'] == 'desc' ? 'down' : 'up'; ?>"></i></span>
+                <?php endif ?>
+            </th>
             <th data-sort_by="item_count" class="<?= $sortConfig['sortBy'] == 'item_count' ? 'sort-active' : '' ?>">
                 <?php echo $translate('Items'); ?>
                 <?php if ($sortConfig['sortBy'] == 'item_count'): ?>
@@ -165,6 +179,7 @@ $sortHeadings = [
             <td><?php echo $escape($translate($itemSet->displayResourceClassLabel())); ?></td>
             <td><?php echo $ownerText; ?></td>
             <td><?php echo $escape($this->i18n()->dateFormat($itemSet->created())); ?></td>
+            <td><?php echo $escape($this->i18n()->dateFormat($itemSet->modified())); ?></td>
             <?php //@flamsens: add more fields using event? ?>
             <td><?php echo $itemSet->itemCount(); ?></td>
         </tr>

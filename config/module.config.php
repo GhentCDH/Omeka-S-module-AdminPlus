@@ -1,5 +1,5 @@
 <?php
-namespace GentGemapt;
+namespace AdminPlus;
 
 use Psr\Container\ContainerInterface;
 

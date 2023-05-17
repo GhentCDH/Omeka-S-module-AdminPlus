@@ -69,6 +69,11 @@ class Module extends AbstractModule
             'view.layout',
             array($this, 'adminAssets')
         );
+        $sharedEventManager->attach(
+            'Omeka\Controller\SiteAdmin\Page',
+            'view.edit.before',
+            array($this, 'adminAssets')
+        );
     }
 
     public function adminAssets(Event $e)

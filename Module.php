@@ -80,7 +80,19 @@ class Module extends AbstractModule
         if ($view instanceof RendererInterface) {
             $view->headLink()->appendStylesheet($view->assetUrl('css/adminplus.css', 'AdminPlus'));
             $view->headScript()->appendFile($view->assetUrl('js/adminplus.js', 'AdminPlus'));
+
+            // add theme ckeditor css (provide defaults)
+            // todo: check if exists
+            $view->headLink()->appendStylesheet($view->assetUrl('css/ckeditor.css', 'AdminPlus', true));
+            // add ckeditor styles (provide defaults)
+            // todo: check if exists
+            $styleSetUrl = $view->assetUrl('js/ckeditor_styles.js', 'AdminPlus', true);
+            $script = <<<JS
+$(document).on('o:ckeditor-config', function(event, config) {
+    config.stylesSet = "theme_styles:$styleSetUrl";    
+});
+JS;
+            $view->headScript()->appendScript($script);
         }
     }
-
 }

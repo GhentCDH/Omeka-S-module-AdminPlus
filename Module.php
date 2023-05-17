@@ -1,8 +1,6 @@
 <?php
 namespace AdminPlus;
 
-use IIIFImport\Listener\ImportContentListener;
-use IIIFImport\Listener\ViewContentListener;
 use Laminas\Config\Factory;
 use Laminas\EventManager\Event;
 use Laminas\EventManager\SharedEventManagerInterface;

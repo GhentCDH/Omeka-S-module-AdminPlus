@@ -67,6 +67,35 @@ body.jobs .flex > header {
 }
 
 
+.sortable-container {
+    display: flex;
+    margin-right: 12px;
+}
+
+.sortable-down::before, .sortable-up::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    opacity: 0.35;
+    font-size: 24px;
+    line-height: 0;
+    position: relative;
+}
+
+.sortable-container .sortable-up::before {
+    content: "\f0d8";
+    top: 3px;
+}
+
+.sortable-container .sortable-down::before {
+    content: "\f0dd";
+    top: -3px;
+}
+
+.sortable-container {
+    display: flex;
+    margin-right: 12px;
+}
+
 /*
 body.items.browse, body.item-sets.browse, body.jobs {
 

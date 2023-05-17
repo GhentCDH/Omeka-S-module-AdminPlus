@@ -14,4 +14,20 @@
         }
         $("form.sorting").submit();
     });
+
+    $(document).on('click', '.sortable-down', function() {
+        let block = $(this).closest('.block');
+        block.insertAfter(block.next());
+    });
+
+    $(document).on('click', '.sortable-up', function() {
+        let block = $(this).closest('.block');
+        block.insertBefore(block.prev());
+    })
+
+    // $('.block-options-icon').on('click', function(e) {
+    //     e.preventDefault();
+    //     console.log('ola')
+    //     $(this).closest('.block').find('.block-options').toggleClass('active')
+    // })
 })(jQuery);

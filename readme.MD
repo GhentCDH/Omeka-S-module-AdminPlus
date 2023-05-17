@@ -13,3 +13,6 @@
 - loads theme /js/ckeditor.css in ckeditor
 - loads theme /js/ckeditor_styles.js style list in ckeditor
 
+### Custom page block layout
+
+- added up/down handles to move blocks

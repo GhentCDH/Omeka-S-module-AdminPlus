@@ -19,7 +19,7 @@ $escape = $this->plugin('escapeHtml');
             <li><a href="#" class="o-icon-undo restore-value" aria-label="<?php echo $translate('Restore value'); ?>" title="<?php echo $translate('Restore value'); ?>"></a></li>
         </ul>
     </div>
-    <div class="block-content">
+    <div class="block-content collapsible">
     <input type="hidden" name="o:block[__blockIndex__][o:layout]" value="<?php echo $escape($layout); ?>">
     <?php echo $blockContent; ?>
     </div>
